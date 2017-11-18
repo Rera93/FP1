@@ -42,3 +42,12 @@ favouriteCourse  ∷ Person → FavouriteCourse
 showPerson       ∷ Person → String
 twins            ∷ Person → Person → Bool
 increaseAge      ∷ Person → Person
+
+Expressions 
+a) map (\p -> age p + 2) students
+b) map (\p -> name p ++ " dr") students
+c) filter (\p -> name p == "Frits") students
+d) filter (\p -> favouriteCourse p == "Functional Programming") students
+e) filter (\p -> age p >= 20 && age p < 30) students
+f) filter (\p -> age p >= 20 && age p < 30 && favouriteCourse p == "Functional Programming") students
+g) filter (\p -> (age p >= 20 && age p < 30) || favouriteCourse p == "Imperative Programming") students
