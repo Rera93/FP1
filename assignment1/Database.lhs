@@ -30,6 +30,9 @@
 
 > showPerson :: Person -> String
 > showPerson (n, a, c, cl) = n ++ " " ++ show a ++ " " ++ c ++ " " ++ cl 
+
+> twins :: Person -> Person -> Bool
+> twins (_n1, a1, _c1, _cl1) (_n2, a2, _c2, _cl2) = if a1 == a2 then True else False 
  
 name             ∷ Person → Name
 favouriteCourse  ∷ Person → FavouriteCourse
