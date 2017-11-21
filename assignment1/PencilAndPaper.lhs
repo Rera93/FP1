@@ -19,4 +19,15 @@ Exercise 1.2.1
 =>  2 : ( insert 7 (9 : [] ))
     { definition of insert | a as 7, b as 9 and xs as []. a < b }
 =>  2 : ( 7 : ( 9 : [] )) 
+
+Exercise 1.2.2
+
+    twice (+1) 0 
+    { 1 + (1 + 0) } 
+=>  2
+
+    twice twice (*2) 1 
+    { twice (*2) 1 = 2 * ( 2 * 1 ) = 4 } 
+    { the second twice will raise 4 to the power of 2 }
+=>  16
    
