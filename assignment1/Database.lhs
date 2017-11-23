@@ -36,6 +36,8 @@
 
 > increaseAge :: Person -> Person 
 > increaseAge (n, a, c, cl) = (n, a + 1, c, cl)
+
+> type thisOldMan = String
  
 name             ∷ Person → Name
 favouriteCourse  ∷ Person → FavouriteCourse
