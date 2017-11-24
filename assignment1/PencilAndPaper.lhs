@@ -33,13 +33,33 @@ Exercise 1.2.2
     { 2 * (2 * 4)                - result for remaining twice will be 16 }
 =>  16
 
+    Replace (" | " ++) "" with (+1) 0
+
+    twice                         -> 2            -> 2^1    -> 2^(2^0)
+    twice twice                   -> 4            -> 2^2    -> 2^(2^1)
+    twice twice twice             -> 16           -> 2^4    -> 2^(2^2)
+    twice twice twice twice       -> 65536        -> 2^16   -> 2^(2^4)
+    twice (twice twice)           -> 16
+    twice twice (twice twice)     -> 256
+    twice (twice (twice twice))   -> 256 
+
+    Note: 
+    { twice twice twice == twice (twice twice) }
+    {  twice twice (twice twice) == twice (twice (twice twice))}
+
 Exercise 1.4
 
 1.
 
-Infix notation is problematic for both human readers and source code formatters. The reader doesn't know the precedences of custom infix operators, he has to read the modules from which the operators are imported from. This is even more difficult because infix operators are usually imported unqualified, that is you don't know from which module an operator is imported. The same problem arises for source code formatters. 
+Infix notation is problematic for both human readers and source code formatters.
+The reader doesn't know the precedences of custom infix operators, he has to read
+the modules from which the operators are imported from. This is even more difficult
+because infix operators are usually imported unqualified, that is you don't know from
+which module an operator is imported. The same problem arises for source code formatters. 
 
-Prefix notation will solve precedence ambiguity in case of multiple operators. In other words, Prefix has to be used if operation is not associative while Infix shines when operation is associative.
+Prefix notation will solve precedence ambiguity in case of multiple operators. 
+In other words, Prefix has to be used if operation is not associative while Infix
+shines when operation is associative.
 
 2.
 
