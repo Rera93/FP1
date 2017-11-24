@@ -32,7 +32,7 @@
 > showPerson (n, a, c, cl) = n ++ " " ++ show a ++ " " ++ c ++ " " ++ cl 
 
 > twins :: Person -> Person -> Bool
-> twins (_n1, a1, _c1, _cl1) (_n2, a2, _c2, _cl2) = if a1 == a2 then True else False 
+> twins p1 p2 = age p1 == age p2
 
 > increaseAge :: Person -> Person 
 > increaseAge (n, a, c, cl) = (n, a + 1, c, cl)
