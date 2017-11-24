@@ -45,7 +45,7 @@ Exercise 1.2.2
 
     Note: 
     { twice twice twice == twice (twice twice) }
-    {  twice twice (twice twice) == twice (twice (twice twice))}
+    { twice twice (twice twice) == twice (twice (twice twice))}
 
 Exercise 1.4
 
