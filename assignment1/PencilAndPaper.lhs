@@ -67,6 +67,13 @@ Exercise 1.3
      { (\x -> 2 * (2 * x)) 4 => 2 * (2 * x) {x:= 4} => 2 * (2 * 4) => 16  }
 =>   16
 
+2.  
+
+     (twice twice) (*2) 1 == twice (twice (*2)) 1 
+
+     Type of twice =>   (t -> t) -> t -> t
+
+
 
 Exercise 1.4
 
