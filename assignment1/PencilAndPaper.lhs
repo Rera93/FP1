@@ -73,8 +73,6 @@ Exercise 1.3
 
      Type of twice =>   (t -> t) -> t -> t
 
-
-
 Exercise 1.4
 
 1.
@@ -95,9 +93,10 @@ Question unclear !
 
 3. 
 
-The fixity declaration infixr . will determine that . associates to the right. Therefore, the previous 
-operation will binary numbers 1 . 0 . 1 . 1 will equal 13 instead of 11 and (1 . 1 . 0) + 4711 will equal 
-4714 instead of 4717.
+The fixity declaration infixr . will determine that . associates to the
+right. Therefore, the previous operation with binary numbers 1 . 0 . 1 . 1 
+will equal 13 instead of 11 and (1 . 1 . 0) + 4711 will equal 4714 instead 
+of 4717.
 
 4. 
 
