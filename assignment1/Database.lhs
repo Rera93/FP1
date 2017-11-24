@@ -45,7 +45,7 @@ increaseAge      ∷ Person → Person
 
 Expressions 
 a) map (\p -> age p + 2) students
-b) map (\p -> name p ++ " dr") students
+b) map (\p -> "dr " ++ name p) students
 c) filter (\p -> name p == "Frits") students
 d) filter (\p -> favouriteCourse p == "Functional Programming") students
 e) filter (\p -> age p >= 20 && age p < 30) students
