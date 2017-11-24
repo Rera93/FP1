@@ -1,4 +1,6 @@
-Exercise 1.2.1
+Exercise 1.2
+
+1.
 
     insertionSort( 7 : ( 9 : ( 2 : [] )))
     { definition of insertionSort | x as 7 and xs as 9 : ( 2 : [] ) }
@@ -20,10 +22,10 @@ Exercise 1.2.1
     { definition of insert | a as 7, b as 9 and xs as []. a < b }
 =>  2 : ( 7 : ( 9 : [] )) 
 
-Exercise 1.2.2
+2.
 
-    twice (+1) 0 
-    { 1 + (1 + 0) } 
+    twice (+1) 0  {apply (+1) to 0 twice }              
+    { 1 + (1 + 0) }  
 =>  2
     twice twice (*2) 1 
     { twice (twice (*2)) 1       - apply twice (*2) to 1 twice }
@@ -46,6 +48,25 @@ Exercise 1.2.2
     Note: 
     { twice twice twice == twice (twice twice) }
     { twice twice (twice twice) == twice (twice (twice twice))}
+
+Exercise 1.3
+
+1. 
+
+     twice = \f -> \x -> f (f x)
+
+     twice (+1) 0   { apply (+1) to 0 twice }
+     { (\x -> 1 + (1 + x)) 0 => 1 + (1 + x) {x:= 0} => 1 + (1 + 0) => 2  }
+=>   4
+
+     twice twice (*2) 1  
+     { twice (twice (*2)) 1       - apply twice (*2) to 1 twice }
+     { twice (*2) (twice (*2) 1)  - solve for second twice, apply (*2) to 1 twice }
+     { twice (*2) (\x -> 2 * (2 * x) 1 => 2 * (2 * x) {x:= 1} => 2 * (2 * 1) => 4  ) }
+     { twice (*2) 4               - solve for remaining twice, apply (*2) to 4 twice }}
+     { (\x -> 2 * (2 * x)) 4 => 2 * (2 * x) {x:= 4} => 2 * (2 * 4) => 16  }
+=>   16
+
 
 Exercise 1.4
 
