@@ -1,3 +1,8 @@
-> module ThisOldMan
+>{-# LANGUAGE UnicodeSyntax #-} 
 
-> type thisOldMan = String
+> module ThisOldMan
+> where
+> import Unicode
+
+> thisOldMan :: String
+> thisOldMan = "Ralp"

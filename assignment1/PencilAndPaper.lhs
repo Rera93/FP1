@@ -25,10 +25,12 @@ Exercise 1.2.2
     twice (+1) 0 
     { 1 + (1 + 0) } 
 =>  2
-
     twice twice (*2) 1 
-    { twice (*2) 1 = 2 * ( 2 * 1 ) = 4 } 
-    { the second twice will raise 4 to the power of 2 }
+    { twice (twice (*2)) 1       - apply twice (*2) to 1 twice }
+    { twice (*2) (twice (*2) 1)  - solve for second twice, apply (*2) to 1 twice }
+    { twice (*2) (2 * ( 2 * 1 )) - result of second twice will be 4 }
+    { twice (*2) 4               - solve for remaining twice, apply (*2) to 4 twice }
+    { 2 * (2 * 4)                - result for remaining twice will be 16 }
 =>  16
 
 Exercise 1.4
@@ -52,9 +54,3 @@ operation will binary numbers 1 . 0 . 1 . 1 will equal 13 instead of 11 and (1 .
 4. 
 
 (((f x) >= 0) && a) || (((((g x) y) * 7) + 10) == (b - 5))
-
-
-
-
- 
-   
