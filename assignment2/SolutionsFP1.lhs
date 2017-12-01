@@ -133,64 +133,68 @@ s (x, y, z) = (x z) (y z)		s::(z->y->x, z->y ,z)-> x
 
 a)
 
-> fa :: Int -> Int
-> fa x = x 
+> fa1 :: Int -> Int
+> fa1 x = x 
 
 b)
 
-> fb :: a -> a
-> f a = a 
+> fb1 :: a -> a
+> fb1 a = a 
 
 c)
 
-> fc :: (Int, Int) -> Int
-> fc (a,b) = a + b
+> fc1 :: (Int, Int) -> Int
+> fc1 (a,b) = a + b
 
 d)
 
-> fd ::  (a, a) -> a
-> fd (a, a) = a
+> fd1 :: (a, a) -> a
+> fd1 (x,y) = y
 
 e) 
 
-> fe :: (a, b) -> a
-> fe (a, _) = a
+> fe1 :: (a, b) -> a
+> fe1 (a, _) = a
 
-Int -> Int   Depending on the system (32/64 bit), the number of total function will be: (2^32)^(2^32) / (2^64)^(2^64) 
+Int -> Int   
+Depending on the system (32/64 bit), the number of total 
+function will be: (2^32)^(2^32) / (2^64)^(2^64) 
+
+a -> a
 
 2.6.2
 
-a
+a)
 
 > fa::(a,a)->(a,a)
 > fa (x,y) = (x,y)
 
-b
+b)
 
 > fb::(a,b)->(b,a)
 > fb (x,y) = (y,x)
 
-c
+c)
 
-> f::(a->b)->a->b
-> f x y = x y
+> fc::(a->b)->a->b
+> fc x y = x y
 
-d
+d)
 
-> fd::(a,x)->a
+> fd::(a,x) -> a
 > fd (a, _) = a
 
-e
+e)
 
 > fe::(x->a->b, a, x) ->b
 > fe (b, a, x) = (b x) a
 
-f
+f)
 
 > ff::(a->b, x->a, x)->b
 > ff (b,a,x) = b (a x)
 
-g
+g)
 
 > fg::(x->a->b, x->a, x) -> b
 > fg (b, a, x) = (b x) (a x)
