@@ -136,7 +136,6 @@ b (x, y, z) = (x z) y           b :: (z -> y -> x, y, z) -> x
 c (x, y, z) = x (y z)           c :: (y -> x, z -> y, z) -> x 
 s (x, y, z) = (x z) (y z)		s :: (z -> y -> x, z -> y ,z) -> x
 
-
 2.6.1
 
 a)
@@ -176,35 +175,67 @@ a.k.a the identity function.
 
 a)
 
-> fa2::(a,a)->(a,a)
-> fa2 (x,y) = (x,y)
+> fa2 :: (a, a) -> (a, a)
+> fa2 (x, y) = (x, y)
 
 b)
 
-> fb2::(a,b)->(b,a)
-> fb2 (x,y) = (y,x)
+> fb2 :: (a, b) -> (b, a)
+> fb2 (x, y) = (y, x)
 
 c)
 
-> fc2::(a->b)->a->b
+> fc2 :: (a -> b) -> a -> b
 > fc2 x y = x y
 
 d)
 
-> fd2::(a,x) -> a
+> fd2 :: (a, x) -> a
 > fd2 (a, _) = a
 
 e)
 
-> fe2::(x->a->b, a, x) ->b
+> fe2 :: (x -> a -> b, a, x) -> b
 > fe2 (b, a, x) = (b x) a
 
 f)
 
-> ff::(a->b, x->a, x)->b
-> ff (b,a,x) = b (a x)
+> ff ::(a -> b, x -> a, x) -> b
+> ff (b, a, x) = b (a x)
 
 g)
 
-> fg::(x->a->b, x->a, x) -> b
+> fg :: (x -> a -> b, x -> a, x) -> b
 > fg (b, a, x) = (b x) (a x)
+
+2.6.3
+
+a)
+
+> fa3 :: Int -> (Int -> Int)
+> fa3 x = fa1
+
+b) 
+
+> fb3 :: (Int -> Int) -> Int 
+> fb3 fa1 = fa1 1
+
+c)
+
+> fc3 :: a -> (a -> a)
+> fc3 a = fc3 a
+
+d) 
+
+> fd3 ::  (a -> a) -> a 
+> fd3 a = fd3 a
+
+(Int -> Int) -> Int
+
+For 32 bit : ((2^32)^(2^32))^(2^32)  
+For 64 bit : ((2^64)^(2^64))^(2^64) 
+
+(a -> a) -> a
+
+There is only one function. The identity function.
+
