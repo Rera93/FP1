@@ -87,10 +87,6 @@ Prefix notation will solve precedence ambiguity in case of multiple operators.
 In other words, Prefix has to be used if operation is not associative while Infix
 shines when operation is associative.
 
-2.
-
-Question unclear !
-
 3. 
 
 The fixity declaration infixr . will determine that . associates to the
