@@ -160,7 +160,9 @@ Int -> Int
 Depending on the system (32/64 bit), the number of total 
 function will be: (2^32)^(2^32) / (2^64)^(2^64) 
 
-a -> a
+a -> a 
+There is only one function of type a -> a, 
+a.k.a the identity function.
 
 2.6.2
 
