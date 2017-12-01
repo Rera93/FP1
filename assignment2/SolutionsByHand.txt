@@ -1,0 +1,7 @@
+2.3 
+
+The results observed indicate that the Int type has a limitation on the range of possible values due to its bit size limitation. For that reason, unexpected results are obtained when the results are too large for the type Int (out of the Int type capacity of storage) as shown in product[1..21] for example.  
+
+As explained before, when the Int type is used, there is a limitation in how large the numbers can be, due to the fixed precision of the machine-integer. Whereas the type Integer has a greater range of values and can "hold any value" up to the machine's memory size, thus the result from the function product is correct because it is within the range of the type Integer.
+
+The machine yelds zero because the value stored in the bits of type Int represent the number zero due to the overflow caused by the result of product [1 .. 66] :: Int.
