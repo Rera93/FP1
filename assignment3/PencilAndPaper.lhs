@@ -23,3 +23,17 @@
 > largest :: [Int] -> Int
 > largest []        = minBound 
 > largest (x : xs)  = x `max` largest xs
+
+3.3
+
+runs is Non-empty and Non-decreasing
+
+> runs :: (Ord a) => [a] -> [[a]]
+> runs []                = []
+> runs (x : xs)          = extend x (runs xs) 
+
+> extend :: (Ord a) => a -> [[a]] -> [[a]]
+> extend x []                =  [[x]]
+> extend x (y : ys)  
+>  | x <= head y             = (x : y) : ys 
+>  | otherwise               = [x] : y : ys 
