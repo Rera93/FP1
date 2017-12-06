@@ -37,3 +37,4 @@ runs is Non-empty and Non-decreasing
 > extend x (y : ys)  
 >  | x <= head y             = (x : y) : ys 
 >  | otherwise               = [x] : y : ys 
+
