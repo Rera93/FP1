@@ -1,4 +1,4 @@
-> {-# LANGUAGE UnicodeSyntax #-}
+>{-# LANGUAGE UnicodeSyntax #-}
 
 > module WordList
 > where
@@ -21,6 +21,17 @@
 >     \takimata sanctus est Lorem ipsum dolor sit amet."
 
 
+brigel's
+
+ wordList :: String -> [(Word, Int)]
+ wordList someWord    = count group . sort . words someWord
+
+ count :: [[String]] -> [(Word, Int)]
+ count x              = (x, map length x)
+
+alan's
+
 > wordList ∷ String → [(Word, Int)]
 > wordList (s) = sortOn snd (zip (map head (group (sort (words s)))) (map length (group (sort (words s)))))
+
 

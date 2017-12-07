@@ -51,6 +51,9 @@ Adenin (A), Cytosin (C), Guanin (G) und Thymin (T).
 >          return (filter base x)
 
 
+
+alan's
+
  contains ∷ Segment → DNA → Bool
  contains s dnaSeq = checkSeq s (tails (dnaSeq))
 
@@ -60,6 +63,13 @@ Adenin (A), Cytosin (C), Guanin (G) und Thymin (T).
                | s == x = True 
                | otherwise = checkSeq s xs
 
+
+brigel's?
+
+contains :: Segment -> DNA -> Bool
+contains seg 
+
+contains            ∷ Segment → DNA → Bool
 
 longestOnlyAs       ∷ DNA → Integer
 longestAtMostTenAs  ∷ DNA → Integer
