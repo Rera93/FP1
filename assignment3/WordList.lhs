@@ -1,5 +1,3 @@
-{-# LANGUAGE UnicodeSyntax #-}
-
 > module WordList
 > where
 > import Prelude hiding (Word)
@@ -21,5 +19,8 @@
 >     \takimata sanctus est Lorem ipsum dolor sit amet."
 
 
-wordList :: String -> [(Word, Int)]
-wordList lore = group . sort . words lore
+> wordList :: String -> [(Word, Int)]
+> wordList someWord    = count group . sort . words someWord
+
+> count :: [[String]] -> [(Word, Int)]
+> count x              = (x, map length x)
