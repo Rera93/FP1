@@ -22,5 +22,5 @@
 
 
 > wordList ∷ String → [(Word, Int)]
-> wordList (s) = sortOn snd (zip (map head (group (sort (words lorem)))) (map length (group (sort (words lorem)))))
+> wordList (s) = sortOn snd (zip (map head (group (sort (words s)))) (map length (group (sort (words s)))))
 
