@@ -15,7 +15,6 @@
 > formatAux [] _n _lim = 0
 > formatAux list n lim
 >        | n == length(unwords list) = n
-> formatAux list n lim 
 >        | lim >  length (unwords (take n ( list) ) )  = formatAux ( list) (n+1) lim
 >        | lim <  length (unwords (take n (  list) ) )  =  n-1
 >        | lim == length (unwords (take n (  list) ) )  = n
