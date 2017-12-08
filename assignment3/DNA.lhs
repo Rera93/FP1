@@ -50,10 +50,27 @@ Adenin (A), Cytosin (C), Guanin (G) und Thymin (T).
 >   =  do  x <- readFile path
 >          return (filter base x)
 
+
+
+alan's
+
+ contains ∷ Segment → DNA → Bool
+ contains s dnaSeq = checkSeq s (tails (dnaSeq))
+
+ checkSeq :: Segment → [Base] -> Bool
+ checkSeq s _ = False
+ checkSeq s (x:xs) 
+               | s == x = True 
+               | otherwise = checkSeq s xs
+
+
+brigel's?
+
 contains :: Segment -> DNA -> Bool
 contains seg 
 
 contains            ∷ Segment → DNA → Bool
+
 longestOnlyAs       ∷ DNA → Integer
 longestAtMostTenAs  ∷ DNA → Integer
 
