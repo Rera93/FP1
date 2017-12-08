@@ -2,7 +2,7 @@
 > where
 > import Prelude hiding (filter)
 > import Unicode
-> import Data.List
+> import List 
 
 Nucleobases or DNA-bases are the basic building blocks of
 deoxyribonucleic acid (DNA).
@@ -50,7 +50,20 @@ Adenin (A), Cytosin (C), Guanin (G) und Thymin (T).
 >   =  do  x <- readFile path
 >          return (filter base x)
 
+> tails :: [a] -> [[a]]
+> tails [] = []
+> tails (x:xs) = xs : tails xs
 
+`any` is applied to a predicate and a list. It determines if any element of
+the list satisfies the predicate.  
+
+> contains :: Segment -> DNA -> Bool
+> contains seg strand = any (isPrefixOf seg) (tails strand)
+
+> isPrefixOf :: Segment -> DNA -> Bool
+> isPrefixOf [] _         =  True
+> isPrefixOf _  []        =  False
+> isPrefixOf (x:xs) (y:ys)=  x == y && isPrefixOf xs ys
 
 alan's
 
@@ -63,14 +76,7 @@ alan's
                | s == x = True 
                | otherwise = checkSeq s xs
 
-
-brigel's?
-
-contains :: Segment -> DNA -> Bool
-contains seg 
-
 contains            ∷ Segment → DNA → Bool
-
 longestOnlyAs       ∷ DNA → Integer
 longestAtMostTenAs  ∷ DNA → Integer
 
