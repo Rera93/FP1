@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-=======
->{-# LANGUAGE UnicodeSyntax #-}
-
->>>>>>> 311a39b6777cf1c4e40ef2fe6f63747594dfa56a
 > module WordList
 > where
 > import Prelude hiding (Word)
@@ -23,23 +18,5 @@
 >     \et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea \
 >     \takimata sanctus est Lorem ipsum dolor sit amet."
 
-<<<<<<< HEAD
 > wordList :: String -> [(Word, Int)]
 > wordList (s) = sortOn snd (zip (map head (group (sort (words lorem)))) (map length (group (sort (words lorem)))))
-=======
-
-brigel's
-
- wordList :: String -> [(Word, Int)]
- wordList someWord    = count group . sort . words someWord
-
- count :: [[String]] -> [(Word, Int)]
- count x              = (x, map length x)
-
-alan's
-
-> wordList ∷ String → [(Word, Int)]
-> wordList (s) = sortOn snd (zip (map head (group (sort (words s)))) (map length (group (sort (words s)))))
-
-
->>>>>>> 311a39b6777cf1c4e40ef2fe6f63747594dfa56a
