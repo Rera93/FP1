@@ -10,17 +10,6 @@
 >   fmap _f Empty         =  Empty
 >   fmap f  (Node l a r)  =  Node (fmap f l) (f a) (fmap f r)
 
-<<<<<<< HEAD
-> ex1  ∷  Tree Integer
-> ex1  =  Node Empty 4711 (Node Empty 0815 (Node Empty 42 Empty))
-> ex2  ∷  Tree String
-> ex2  =  Node (Node (Node Empty "Frits" Empty) "Peter" Empty) "Ralf" Empty
-> ex3  ∷  Tree Char
-> ex3  =  Node (Node Empty 'a' Empty) 'k' (Node Empty 'z' Empty)
-
-size ∷ Tree elem → Int
-minHeight, maxHeight ∷ Tree elem → Int
-=======
 > ex1  ::  Tree Integer
 > ex1  =  Node Empty 4711 (Node Empty 0815 (Node Empty 42 Empty))
 > ex2  ::  Tree String
@@ -82,10 +71,20 @@ of nodes in each situation.
 > member _ Empty = False
 > member e (Node l n r) = e == n || member e l || member e r
 
+2.1
 
+> preorder :: Tree elem -> [elem]
+> preorder Empty         = []
+> preorder (Node l n r)  = [n] ++ preorder l ++ preorder r 
 
->>>>>>> brigel
-member ∷ (Eq elem) ⇒ elem → Tree elem → Bool
+> inorder :: Tree elem -> [elem]
+> inorder Empty         = []
+> inorder (Node l n r)  = inorder l ++ [n] ++ inorder r
+
+> postorder :: Tree elem -> [elem]
+> postorder Empty         = []
+> postorder (Node l n r)  = postorder l ++ postorder r ++ [n]
+ 
 preorder, inorder, postorder ∷ Tree elem → [elem]
 layout ∷ (Show elem) => Tree elem → String
 build ∷ [elem] → Tree elem
