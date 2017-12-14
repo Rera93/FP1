@@ -97,7 +97,21 @@ of nodes in each situation.
 > layout :: (Show elem) => Tree elem -> String
 > layout = unlines.represent
 
-layout ∷ (Show elem) => Tree elem → String
+3.1
+
+> singleton :: a -> Tree a 
+> singleton x     = Node Empty x Empty
+
+> treeInsert :: (Ord a) => a -> Tree a -> Tree a 
+> treeInsert x Empty  = singleton x 
+> treeInsert x (Node l n r)
+>   | x == n = Node l n r 
+>   | x < n  = Node (treeInsert x l) n r
+>   | x > n  = Node l n (treeInsert x r) 
+
+> build :: (Ord elem) => [elem] -> Tree elem 
+> build = foldr treeInsert Empty 
+
 build ∷ [elem] → Tree elem
 balanced ∷ [elem] → Tree elem
 create ∷ Int → Tree ()
