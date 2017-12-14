@@ -65,6 +65,12 @@ nodes of the longest path. The min height is found through the number
 of nodes of the shortest path. The size is used to determing the number
 of nodes in each situation.
 
+1.6
+
+> member :: (Eq elem) => elem -> Tree elem -> Bool
+> member _ Empty = False
+> member e (Node l n r) = e == n || member e l || member e r
+
 
 
 member ∷ (Eq elem) ⇒ elem → Tree elem → Bool
