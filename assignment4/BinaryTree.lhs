@@ -44,18 +44,28 @@ Node (Node Empty ’a’ Empty) ’k’ (Node Empty ’z’ Empty)
 1.3 
 
 > size :: Tree elem -> Int
-> size Empty                  = 0
-> size (Node l _ r) = size l + 1 + size r
+> size Empty         = 0
+> size (Node l _ r)  = size l + 1 + size r
 
 1.4
 
 > maxHeight :: Tree elem -> Int 
-> maxHeight Empty           = 0
-> maxHeight (Node l _ r)    = size l `max` size r
+> maxHeight Empty         = 0
+> maxHeight (Node l _ r)  = size l `max` size r
 
 > minHeight :: Tree elem -> Int 
-> minHeight Empty           = 0
-> minHeight (Node l _ r)    = size l `min` size r
+> minHeight Empty         = 0
+> minHeight (Node l _ r)  = size l `min` size r
+
+1.5 
+
+To find the min/max height, the size function is used. 
+The max height of a binary tree can be defined throught the number of
+nodes of the longest path. The min height is found through the number 
+of nodes of the shortest path. The size is used to determing the number
+of nodes in each situation.
+
+
 
 member ∷ (Eq elem) ⇒ elem → Tree elem → Bool
 preorder, inorder, postorder ∷ Tree elem → [elem]
