@@ -45,12 +45,18 @@ Node (Node Empty ’a’ Empty) ’k’ (Node Empty ’z’ Empty)
 
 > size :: Tree elem -> Int
 > size Empty                  = 0
-> size (Node left _ right) = size left + 1 + size right
+> size (Node l _ r) = size l + 1 + size r
 
+1.4
 
+> maxHeight :: Tree elem -> Int 
+> maxHeight Empty           = 0
+> maxHeight (Node l _ r)    = size l `max` size r
 
-size ∷ Tree elem → Int
-minHeight, maxHeight ∷ Tree elem → Int
+> minHeight :: Tree elem -> Int 
+> minHeight Empty           = 0
+> minHeight (Node l _ r)    = size l `min` size r
+
 member ∷ (Eq elem) ⇒ elem → Tree elem → Bool
 preorder, inorder, postorder ∷ Tree elem → [elem]
 layout ∷ (Show elem) => Tree elem → String
