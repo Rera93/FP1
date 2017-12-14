@@ -84,8 +84,19 @@ of nodes in each situation.
 > postorder :: Tree elem -> [elem]
 > postorder Empty         = []
 > postorder (Node l n r)  = postorder l ++ postorder r ++ [n]
- 
-preorder, inorder, postorder ∷ Tree elem → [elem]
+
+2.2
+
+> indent :: [String] -> [String]
+> indent = map ("  "++)
+
+> represent :: (Show elem) => Tree elem -> [String]
+> represent Empty = []
+> represent (Node l n r) = indent (represent l) ++ [show n] ++ indent (represent r)
+
+> layout :: (Show elem) => Tree elem -> String
+> layout = unlines.represent
+
 layout ∷ (Show elem) => Tree elem → String
 build ∷ [elem] → Tree elem
 balanced ∷ [elem] → Tree elem
