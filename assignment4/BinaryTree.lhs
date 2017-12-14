@@ -19,8 +19,8 @@
 
 1.1
 
-> capture :: Tree Char 
-> capture =  Node (Node Empty 'a' (Node Empty 'b' Empty)) 'c' (Node (Node Empty 'd' Empty) 'f' (Node Empty 'g' Empty))
+> givenTree :: Tree Char 
+> givenTree =  Node (Node Empty 'a' (Node Empty 'b' Empty)) 'c' (Node (Node Empty 'd' Empty) 'f' (Node Empty 'g' Empty))
 
 1.2 
 
@@ -40,6 +40,12 @@ Node (Node Empty ’a’ Empty) ’k’ (Node Empty ’z’ Empty)
 
 { 'k' is the root and it contains two children being 'a' on the left 
   and 'z' on the right. 'a' and 'z' have no children. }
+
+1.3 
+
+> size :: Tree elem -> Int
+> size Empty                  = 0
+> size (Node left _ right) = size left + 1 + size right
 
 
 
