@@ -102,16 +102,22 @@ of nodes in each situation.
 > singleton :: a -> Tree a 
 > singleton x     = Node Empty x Empty
 
-> treeInsert :: (Ord a) => a -> Tree a -> Tree a 
-> treeInsert x Empty  = singleton x 
-> treeInsert x (Node l n r)
->   | x == n = Node l n r 
->   | x < n  = Node (treeInsert x l) n r
->   | x > n  = Node l n (treeInsert x r) 
+> treeInsertOrd :: (Ord a) => a -> Tree a -> Tree a 
+> treeInsertOrd x Empty  = singleton x 
+> treeInsertOrd x (Node l n r)
+>   | (size l - size r) == 1 = Node l n (treeInsertOrd x r)
+>   | (size r - size l) == 1 = Node (treeInsertOrd x l) n r
+>   | (size r - size l) == 0  = Node l n (treeInsertOrd x r) 
 
 > build :: (Ord elem) => [elem] -> Tree elem 
 > build = foldr treeInsert Empty 
 
+
 build ∷ [elem] → Tree elem
-balanced ∷ [elem] → Tree elem
+
+
+> balanced ∷ (Ord elem) => [elem] → Tree elem
+> balanced = foldr treeInsertOrd Empty
+
+
 create ∷ Int → Tree ()
