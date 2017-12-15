@@ -112,7 +112,7 @@ of nodes in each situation.
 > build :: (Ord elem) => [elem] -> Tree elem 
 > build = foldr treeInsert Empty 
 
-The expression inorder (build ([1,3,5,4])) will return [1,3,5,4].  
+The expression ` inorder (build ([1,3,5,4])) ` will return [1,3,5,4].  
 
 3.2
 
@@ -128,4 +128,11 @@ The expression inorder (build ([1,3,5,4])) will return [1,3,5,4].
 
 3.3 
 
+Quacksalver
+
+Inserting more elements to a tree will result with the the depth of the tree growing 
+logarithmically with the number of elements in them. If the tree has n elements, 
+it's depth is O(lg n)
+
 create ∷ Int → Tree ()
+
