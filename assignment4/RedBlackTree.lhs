@@ -47,14 +47,22 @@
 
 5.3
 
+Testing Values
+{
+
 > redCondTree :: RedBlackTree Int
 > redCondTree = Node B (Node R (Node R Leaf 4 Leaf) 7 Leaf) 9 (Node B Leaf 10 Leaf)
 
 > blackCondTree :: RedBlackTree Int 
 > blackCondTree = Node B (Node B (Node R Leaf 4 Leaf) 7 Leaf) 9 (Node R Leaf 10 Leaf) 
 
-> redRootTree :: RedBlackTree Int 
+> redRootTree :: RedBlackTree Int
 > redRootTree = Node R (Node B (Node R Leaf 4 Leaf) 7 Leaf) 9 (Node B Leaf 10 Leaf)
+
+> notSearchTree :: RedBlackTree Int
+> notSearchTree = Node R (Node B (Node R Leaf 9 Leaf) 4 Leaf) 10 (Node B Leaf 7 Leaf)
+
+}
 
 > redInvariant :: RedBlackTree a -> Bool
 > redInvariant Leaf = True
@@ -80,7 +88,20 @@
 > checkRoot (Node B _ _ _)     = True
 > checkRoot (Node R _ _ _)     = False
 
-> isRedBlackTree :: RedBlackTree elem -> Bool
-> isRedBlackTree rbt = blackInvariant rbt  && redInvariant rbt && checkRoot rbt
+> inorder :: (Ord elem) => RedBlackTree elem -> [elem]
+> inorder Leaf         = []
+> inorder (Node _ l n r)  = inorder l ++ [n] ++ inorder r
+
+> isSearchTree :: (Ord elem) => RedBlackTree elem -> Bool
+> isSearchTree Leaf = True
+> isSearchTree (Node c l n r) = ascendingList (inorder (Node c l n r))  
+
+> ascendingList :: (Ord a) => [a] -> Bool
+> ascendingList [] = True
+> ascendingList [x] = True
+> ascendingList (x:y:xs) = x <= y && ascendingList (y:xs)
+
+> isRedBlackTree :: (Ord elem) => RedBlackTree elem -> Bool
+> isRedBlackTree rbt = blackInvariant rbt  && redInvariant rbt && checkRoot rbt && isSearchTree rbt
 
 redBlackTrees ∷ [elem] → Probes (RedBlackTree elem)
