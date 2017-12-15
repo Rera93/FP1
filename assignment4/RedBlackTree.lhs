@@ -11,7 +11,7 @@
 >   deriving (Show)
 
 > testRBTree :: RedBlackTree Int 
-> testRBTree = Node B (Node R Leaf 4 Leaf) 7 (Node R Leaf 10 Leaf)
+> testRBTree = Node B (Node B (Node R Leaf 4 Leaf) 7 Leaf) 9 (Node B Leaf 10 Leaf)
 
  instance Functor RedBlackTree where
    fmap _f (Leaf)         =  Leaf
