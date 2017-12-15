@@ -17,6 +17,11 @@
 >   | x < n  = member x l 
 >   | x > n  = member x r
 
+The member function of the BST will be more efficient when compared to the member function of 
+BT. In the BST, the recursiveness ability of member will be determined by comparing guards with
+each other. In other words, the number of steps to get to the solution is smaller for the BST. 
+It will take more time to find if an element is part of a normal binary tree.   
+
 4.2 
 
 > insert :: (Ord elem) => elem -> Tree elem -> Tree elem
