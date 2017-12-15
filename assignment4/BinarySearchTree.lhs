@@ -46,9 +46,16 @@
 > leftistElement (Node Empty n _) = n
 > leftistElement (Node l _ _) = leftistElement l
 
+4.4
 
-insert ∷ (Ord elem) ⇒ elem → Tree elem → Tree elem
-delete ∷ (Ord elem) ⇒ elem → Tree elem → Tree elem
+> isSearchTree :: (Ord elem) => Tree elem -> Bool
+> isSearchTree Empty = True
+> isSearchTree (Node l n r) = ascendingList (inorder (Node l n r))  
+
+> ascendingList :: (Ord a) => [a] -> Bool
+> ascendingList [] = True
+> ascendingList [x] = True
+> ascendingList (x:y:xs) = x <= y && ascendingList (y:xs)
 
 isSearchTree ∷ (Ord elem) ⇒ Tree elem → Bool
 trees ∷ [elem] → Probes (Tree elem)  -- should be defined in BinaryTree
