@@ -25,17 +25,21 @@
 >  | x == n    = True
 >  | otherwise = member x r
 
- insert :: (Ord elem) => elem -> RedBlackTree elem -> RedBlackTree elem
- insert x s = makeBlack $ ins s
-  where ins E  = T R E x E
-        ins (T color a y b)
-          | x < y  = balance color (ins a) y b
-          | x == y = T color a y b
-          | x > y  = balance color a y (ins b)
-        makeBlack (T _ a y b) = T B a y b
+> insert :: (Ord elem) => elem -> RedBlackTree elem -> RedBlackTree elem
+> insert x rbTree = makeRootBlack $ ins rbTree
+>  where ins Leaf  = Node R Leaf x Leaf
+>        ins (Node color l n r)
+>          | x < n  = balance color (ins l) n r
+>          | x == n = Node color l n r
+>          | x > n  = balance color l n (ins r)
+>        makeRootBlack (Node _ l n r) = Node B l n r
 
-member ∷ (Ord elem) ⇒ elem → RedBlackTree elem → Bool
-insert ∷ (Ord elem) ⇒ elem → RedBlackTree elem → RedBlackTree elem
-black ∷ RedBlackTree elem → elem → RedBlackTree elem → RedBlackTree elem
+> balance :: Color -> RedBlackTree elem -> elem -> RedBlackTree elem -> RedBlackTree elem
+> balance B (Node R (Node R a x b) y c) z d = Node R (Node B a x b) y (Node B c z d)
+> balance B (Node R a x (Node R b y c)) z d = Node R (Node B a x b) y (Node B c z d)
+> balance B a x (Node R (Node R b y c) z d) = Node R (Node B a x b) y (Node B c z d)
+> balance B a x (Node R b y (Node R c z d)) = Node R (Node B a x b) y (Node B c z d)
+> balance color a x b = Node color a x b
+
 isRedBlackTree ∷ RedBlackTree elem → Bool
 redBlackTrees ∷ [elem] → Probes (RedBlackTree elem)
