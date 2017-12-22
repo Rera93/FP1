@@ -11,10 +11,10 @@
 > O & _b  =  O
 > I & b   =  b
 
-> infixr 2 ∨
-> (∨) ∷ Bit → Bit → Bit
-> O ∨ b   =  b
-> I ∨ _b  =  I
+> infixr 2 !
+> (!) ∷ Bit → Bit → Bit
+> O ! b   =  b
+> I ! _b  =  I
 
 > infixr 4 ⊕
 > (⊕) ∷ Bit → Bit → Bit
@@ -28,9 +28,10 @@ mapr ∷ ((a, state) → (b, state)) → (([a], state) → ([b], state))
 > type Carry  =  Bit
 
 > halfAdder :: (Bit, Bit) -> (Bit, Carry)
-> halfAdder (bitA, bitB)  =  (bitA ⊕ bitB, bitA & bitB ) 
+> halfAdder (bitA, bitB)  =  (bitA ⊕ bitB, bitA & bitB) 
 
- fullAdder :: ((Bit, Bit), Carry) -> (Bit, Carry)
- fullAdder ((bitA, bitB), carryIn 
+> fullAdder :: ((Bit, Bit), Carry) -> (Bit, Carry)
+> fullAdder ((bitA, bitB), carryIn) =
+>  (((bitA ⊕ bitB) ⊕ carryIn), (bitA & bitB) ! ((bitA ⊕ bitB) & carryIn)) 
 
 fullAdder ∷ ((Bit, Bit), Carry) → (Bit, Carry)
