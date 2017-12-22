@@ -3,6 +3,7 @@
 > where
 > import Unicode
 > import Lambda
+> import Parser
 
 > data SKI var
 >   =  Free var                 -- free/unbound variable

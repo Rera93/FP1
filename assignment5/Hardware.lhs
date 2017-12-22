@@ -27,5 +27,9 @@ mapr ∷ ((a, state) → (b, state)) → (([a], state) → ([b], state))
 
 > type Carry  =  Bit
 
+> halfAdder :: (Bit, Bit) -> (Bit, Carry)
+> halfAdder (bitA, bitB)  =  (bitA ⊕ bitB, if (bitA == I) && (bitB == I) then I else O) 
+
+
 halfAdder ∷ (Bit, Bit) → (Bit, Carry)
 fullAdder ∷ ((Bit, Bit), Carry) → (Bit, Carry)
