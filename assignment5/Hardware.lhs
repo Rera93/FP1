@@ -6,10 +6,10 @@
 > data Bit  =  O | I
 >   deriving (Eq, Ord, Show)
 
-> infixr 3 ∧
-> (∧) ∷ Bit → Bit → Bit
-> O ∧ _b  =  O
-> I ∧ b   =  b
+> infixr 3 &
+> (&) ∷ Bit → Bit → Bit
+> O & _b  =  O
+> I & b   =  b
 
 > infixr 2 ∨
 > (∨) ∷ Bit → Bit → Bit
@@ -28,8 +28,9 @@ mapr ∷ ((a, state) → (b, state)) → (([a], state) → ([b], state))
 > type Carry  =  Bit
 
 > halfAdder :: (Bit, Bit) -> (Bit, Carry)
-> halfAdder (bitA, bitB)  =  (bitA ⊕ bitB, if (bitA == I) && (bitB == I) then I else O) 
+> halfAdder (bitA, bitB)  =  (bitA ⊕ bitB, bitA & bitB ) 
 
+ fullAdder :: ((Bit, Bit), Carry) -> (Bit, Carry)
+ fullAdder ((bitA, bitB), carryIn 
 
-halfAdder ∷ (Bit, Bit) → (Bit, Carry)
 fullAdder ∷ ((Bit, Bit), Carry) → (Bit, Carry)
