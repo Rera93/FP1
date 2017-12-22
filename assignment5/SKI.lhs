@@ -18,6 +18,13 @@
 > s ∷ (env → a → b) → (env → a) → (env → b)
 > s x y arg = (x arg) (y arg)
 
+> abstr :: (Eq var) => var -> SKI var -> SKI var
+> abstr x (Free y)
+>   | x == y           = I'
+>   | otherwise        = App K (Free y)
+> abstr x (App e1 e2)  = S `App` (abstr x e1) `App` (abstr x e2)
+> abstr x e            = App K e 
+
 abstr   ∷ (Eq var) ⇒ var → SKI var → SKI var
 compile ∷ (Eq var) ⇒ Lambda var → SKI var
 reduce  ∷ SKI var → [SKI var] → SKI var
