@@ -18,6 +18,8 @@
 > s ∷ (env → a → b) → (env → a) → (env → b)
 > s x y arg = (x arg) (y arg)
 
+5.5.1
+
 > abstr :: (Eq var) => var -> SKI var -> SKI var
 > abstr x (Free y)
 >   | x == y           = I'
@@ -25,8 +27,13 @@
 > abstr x (App e1 e2)  = S `App` (abstr x e1) `App` (abstr x e2)
 > abstr x e            = App K e 
 
-abstr   ∷ (Eq var) ⇒ var → SKI var → SKI var
-compile ∷ (Eq var) ⇒ Lambda var → SKI var
+5.5.2
+
+> compile :: (Eq var) => Lambda var -> SKI var
+> compile (Var x)      = Free x 
+> compile (Fun x e)    = abstr x (compile e)
+> compile (e1 :@ e2)    = compile e1 `App` compile e2
+
 reduce  ∷ SKI var → [SKI var] → SKI var
 
 twice = parse expr "λf.λx.f(fx)"
