@@ -9,6 +9,8 @@
 >   ε    ∷  a
 >   (•)  ∷  a → a → a
 
+2.1
+
 Out of the 16 cantidates only 4 of them fullfil the monoid requirements
 AND, OR, XOR and XNOR
 
@@ -39,6 +41,13 @@ AND, OR, XOR and XNOR
 > instance Monoid AllOrNone where
 >    mempty                              = AllOrNone True
 >    mappend (AllOrNone p) (AllOrNone q) = AllOrNone (eqv p q)
+
+2.2 
+
+Reduce consists of folding those elements, so that in the end we produce just
+one element.
+
+And and Or are already predefined in different names.
 
 
 
